@@ -43,11 +43,13 @@ function createIssue() {
 }
 
 function getIssues() {
+  const url  = `${baseURL}/repos/${repo}/issues`;
+  
   fetch(url, {
     headers: {
     Authorization: `token ${getToken()}`
     }
   })
-    .then(res => res.json())
-    .then(json => showIssues(json));
+  .then(res => res.json())
+  .then(json => showIssues(json));
 }
